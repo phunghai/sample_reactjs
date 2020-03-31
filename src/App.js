@@ -1,7 +1,26 @@
 import React, { Component } from "react";
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
+import ProTip from './ProTip';
 import { hot } from "react-hot-loader";
 import './sass/app.scss';
 
+function Copyright() {
+    return (
+      <Typography variant="body2" color="textSecondary" align="center">
+        {'Copyright © '}
+        <Link color="inherit" href="https://material-ui.com/">
+          Your Website
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+}
+
+  
 class App extends Component {
     state = {
         counter: 0
@@ -14,11 +33,15 @@ class App extends Component {
     };
     render() {
         return (
-            <div className="App">
-                <h1>I'm configuring setting up Webpack!!!</h1>
-                <p>{`The count now is: ${this.state.counter}`}</p>
-                <button onClick={this.handleClick}>Click me</button>
-            </div>
+            <Container maxWidth="sm">
+              <Box my={4}>
+                <Typography variant="h4" component="h1" gutterBottom>
+                  Create React App v4-beta example
+                </Typography>
+                <ProTip />
+                <Copyright />
+              </Box>
+            </Container>
         );
     }
 }
